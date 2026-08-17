@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Dhruv Godhaniya">
+<title>Fees & Accounts | Hostel Manager</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<style>
+.account-balance{font-size:2rem;font-weight:800;margin:.35rem 0 1rem}.account-balance-label{color:var(--muted,#6b7280);font-size:.9rem}.account-grid{display:grid;grid-template-columns:minmax(360px,460px) minmax(0,1fr);gap:18px;align-items:start}.account-grid>div{min-width:0}.table-wrap{overflow-x:auto}.fee-period-box{margin-top:16px;padding:16px;border:1px solid var(--border,#e5e7eb);border-radius:14px;background:var(--surface-soft,#f8fafc)}.fee-period-box h3{margin:0 0 12px;font-size:1rem}.fee-period-status{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}.status-badge{display:inline-flex;padding:4px 8px;border-radius:999px;font-size:.78rem;text-transform:capitalize}.status-present{background:#dcfce7;color:#166534}.expired-action{white-space:nowrap}.expired-row{background:rgba(239,68,68,.035)}.expired-fee-card .table-wrap{max-width:100%}.expired-fee-card .data-table{min-width:760px}@media(max-width:1050px){.account-grid{grid-template-columns:1fr}}
+</style>
+<script>
+/* Desktop-only lock: intentionally prevents the main HMS from being used on mobile. */
+(function(){
+  var mobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(navigator.userAgent)||window.innerWidth<600;
+  if(!mobile)return;
+  document.documentElement.innerHTML='<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Desktop Only</title><style>body{margin:0;background:#111827;color:#fff;font-family:system-ui,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box}.box{max-width:420px;background:#1f2937;border:1px solid #374151;border-radius:18px;padding:28px;box-shadow:0 15px 40px #0005}h1{font-size:22px;margin:0 0 10px}p{color:#d1d5db;line-height:1.6;margin:8px 0}.icon{font-size:42px}</style></head><body><div class="box"><div class="icon">🖥️</div><h1>Desktop Only</h1><p>This main Hostel Management System is intentionally locked on mobile devices.</p><p>Please open the main system on a desktop or laptop.</p><p>Your data is not changed or deleted.</p></div></body></html>';
+  throw new Error('HMS desktop-only lock');
+})();
+</script>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brand-logo">🏠</div><div><h2>Hostel Manager</h2><small>Management System</small></div></div>
+  <nav class="navigation">
+    <a class="nav-item" href="../index.html"><span>📋</span>Admission</a>
+    <a class="nav-item" href="../pages/students.html"><span>👨‍🎓</span>Students</a>
+    <a class="nav-item" href="../pages/hostel.html"><span>🏢</span>Hostel</a>
+    <a class="nav-item active" href="../pages/fees.html"><span>💰</span>Fees & Accounts</a>
+    <a class="nav-item" href="../pages/reports.html"><span>📊</span>Reports</a>
+    <a class="nav-item" href="../pages/attendance.html"><span>✓</span>Attendance</a>
+  </nav>
+  <div class="sidebar-footer"><div class="avatar">DG</div><div><strong>Dhruv Godhaniya</strong><small>System Developer</small></div></div>
+</aside>
+<main class="main-content">
+  <header class="topbar">
+    <button class="mobile-menu" id="mobileMenu" type="button">☰</button>
+    <div><div class="breadcrumb">Hostel Manager <span>/</span> <strong>Fees & Accounts</strong></div><h1>Fees & Accounts</h1><p class="subtitle">Manage hostel fees and each student's money account.</p></div>
+    <div class="top-status"><span class="status-dot"></span><div><small>Data Storage</small><strong>Local Device</strong></div></div>
+  </header>
+  <section class="page-content">
+    <div class="card page-gap">
+  <div class="card-head"><div><h2>Select Student</h2><p>Choose a current student to manage fees and account money.</p></div></div>
+  <div class="card-body">
+    <div class="field"><label>Student</label><select id="feeStudent" required></select></div>
+    <div id="selectedFeeDeadline" class="fee-deadline-box page-gap"><span class="deadline-empty">Select a student to see the fee deadline.</span></div>
+  </div>
+</div>
+
+    <div class="account-grid">
+      <div>
+        <div class="card page-gap"><div class="card-head"><div><h2>Record Fee Payment</h2><p>Keep hostel fee payments separate from the student's account balance.</p></div></div><div class="card-body">
+          <form id="feeForm">
+            <div class="field"><label>Payment Amount (₹)</label><input id="feeAmount" type="number" min="1" step="0.01" required placeholder="Enter amount"></div>
+            <div class="form-grid page-gap">
+              <div class="field"><label>Fee Payment Date <em>*</em></label><input id="feeDate" type="date" required></div>
+              <div class="field"><label>Payment Method</label><select id="feeMethod"><option value="Cash">Cash</option><option value="UPI">UPI</option><option value="Bank Transfer">Bank Transfer</option><option value="Other">Other</option></select></div>
+            </div>
+            <div class="field page-gap"><label>Note</label><input id="feeNote" placeholder="e.g. August hostel fee"></div>
+            <div class="fee-period-box">
+              <div class="fee-period-status"><h3>Fee Period</h3><span id="feePeriodStatus" class="badge gray">Select student</span></div>
+              <div class="form-grid">
+                <div class="field"><label>Fees Starting Date <em>*</em></label><input id="feeStartDate" type="date" required></div>
+                <div class="field"><label>Fees Duration (Months) <em>*</em></label><input id="feeDurationMonths" type="number" min="1" max="60" step="1" required></div>
+              </div>
+              <div class="field page-gap"><label>Fees Ending Date</label><input id="feeEndDate" type="date" readonly></div>
+              <small class="hint">The ending date is calculated automatically from starting date + duration. Saving a fee payment also saves this fee period.</small>
+            </div>
+            <div class="form-actions">
+              <button class="primary-button" type="submit">＋ Save Fee Payment & Period</button>
+              <button class="secondary-button" id="updateFeePeriodBtn" type="button">Update Period Only</button>
+            </div>
+          </form>
+        </div></div>
+
+        <div class="card"><div class="card-head"><div><h2>Student Account</h2><p>Deposit or withdraw money from the selected student's account.</p></div></div><div class="card-body">
+          <div class="account-balance-label">Current Balance</div><div id="accountBalance" class="account-balance">₹0.00</div>
+          <form id="accountForm">
+            <div class="field"><label>Transaction Type</label><select id="accountType"><option value="deposit">Deposit</option><option value="withdrawal">Withdrawal</option></select></div>
+            <div class="field page-gap"><label>Amount (₹)</label><input id="accountAmount" type="number" min="1" step="0.01" required placeholder="Enter amount"></div>
+            <div class="field page-gap"><label>Note</label><input id="accountNote" placeholder="e.g. Cash deposited by student"></div>
+            <div class="form-actions"><button class="primary-button" type="submit">＋ Add to Account</button></div>
+          </form>
+        </div></div>
+      </div>
+
+      <div>
+        <div class="card page-gap"><div class="card-head"><div><h2>Account History</h2><p>Every deposit/withdrawal is recorded against the student's permanent ID.</p></div></div><div class="table-wrap"><table class="data-table"><thead><tr><th>Transaction ID</th><th>Date</th><th>Type</th><th>Amount</th><th>Note</th></tr></thead><tbody id="accountHistoryBody"><tr><td colspan="5" class="empty-cell">Select a student.</td></tr></tbody></table></div></div>
+        <div class="card"><div class="card-head"><div><h2>Fee Payment History</h2><p>Recorded hostel fee payments.</p></div></div><div class="table-wrap"><table class="data-table"><thead><tr><th>Payment ID</th><th>Date</th><th>Amount</th><th>Method</th><th>Note</th></tr></thead><tbody id="feeHistoryBody"><tr><td colspan="5" class="empty-cell">Select a student.</td></tr></tbody></table></div></div>
+    <div class="card page-gap expired-fee-card">
+      <div class="card-head">
+        <div><h2>Expired Fee Students</h2><p>Active students whose fee ending date has passed.</p></div>
+        <span class="badge red" id="expiredFeeCount">0</span>
+      </div>
+      <div class="card-body">
+        <div class="data-tools">
+          <button class="secondary-button" id="copyExpiredFeeStudentsBtnV19" type="button" onclick="window.HMSCopyExpiredFeeStudents && window.HMSCopyExpiredFeeStudents(event)">📋 Copy Expired Student List</button>
+          <span class="hint">Use each WhatsApp button to send the alert directly. The browser cannot bulk-send WhatsApp messages without a WhatsApp Business/API integration.</span>
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead><tr><th>Roll</th><th>Student</th><th>Parent Mobile</th><th>Fee Start</th><th>Fee End</th><th>Status</th><th>Action</th><th>Alert</th></tr></thead>
+          <tbody id="expiredFeesBody"><tr><td colspan="8" class="empty-cell">Loading...</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+      </div>
+
+
+    </div>
+  </section>
+  <footer class="footer">Hostel Management System • Dhruv Godhaniya</footer>
+</main>
+</div>
+<div id="toastContainer" class="toast-container"></div>
+<script src="../js/storage.js"></script><script src="../js/app.js"></script><script src="../js/fees.js?v=1.9.3"></script>
+</body>
+</html>
