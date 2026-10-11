@@ -1,0 +1,28 @@
+
+.card + .card{margin-top:0}.table-card{padding:0}.table-card .card-head{border-bottom:0}.large-number{font-size:28px;font-weight:850}.accent-note{font-size:10px;color:#8b95a9}.fee-summary{display:flex;justify-content:space-between;padding:13px;background:#f8fafc;border-radius:10px;margin:12px 0;font-size:11px}.fee-summary strong{font-size:16px}.date-input{max-width:180px}.center{text-align:center}.right{text-align:right}
+
+
+/* Fee deadline / expiry UI */
+.fee-deadline-box{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:16px;
+  padding:14px 16px;
+  border:1px solid var(--border,#e5e7eb);
+  border-radius:12px;
+  background:var(--surface-soft,#f8fafc);
+}
+.fee-deadline-box small{display:block;color:var(--muted,#6b7280);margin-bottom:4px}
+.fee-deadline-box strong{display:block}
+.deadline-empty{color:var(--muted,#6b7280)}
+.table-sub{display:block;margin-top:4px;color:var(--muted,#6b7280)}
+.small-button{padding:7px 10px;font-size:12px;text-decoration:none;display:inline-block}
+
+/* v1.6 student management */
+.student-edit-modal{width:min(980px,94vw);max-height:90vh;overflow:auto}
+.student-edit-modal .profile-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+.student-edit-modal .field{min-width:0}
+.edit-summary{display:flex;flex-wrap:wrap;gap:12px;margin:16px 0;padding:12px 14px;border:1px solid var(--border,#e5e7eb);border-radius:12px;background:var(--surface-soft,#f8fafc)}
+@media(max-width:900px){.student-edit-modal .profile-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:620px){.student-edit-modal .profile-grid{grid-template-columns:1fr}}

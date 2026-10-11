@@ -1,0 +1,469 @@
+{
+  "meta": {
+    "app": "Hostel Management System",
+    "version": 1,
+    "owner": "Dhruv Godhaniya",
+    "createdAt": "2026-08-08T09:00:00Z",
+    "updatedAt": "2026-08-08T09:00:00Z",
+    "backupType": "DEMO_DATA"
+  },
+  "counters": {
+    "nextStudentSequence": 13,
+    "nextRoomSequence": 1,
+    "nextPaymentSequence": 5
+  },
+  "students": [
+    {
+      "permanentId": "HMS-STU-2026-000001",
+      "rollNumber": 1,
+      "name": "Ram Patel",
+      "village": "Porbandar",
+      "mobile": "9876500001",
+      "status": "active",
+      "joinedAt": "2026-06-20T09:00:00Z",
+      "leftAt": null,
+      "roomNumber": "100",
+      "floorNumber": "1",
+      "bedNumber": "",
+      "notes": "Demo: room occupied",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-20",
+      "feesStartDate": "2026-06-20",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-20"
+    },
+    {
+      "permanentId": "HMS-STU-2026-000002",
+      "rollNumber": 2,
+      "name": "Karan Solanki",
+      "village": "Rajkot",
+      "mobile": "9876500002",
+      "status": "active",
+      "joinedAt": "2026-06-21T09:00:00Z",
+      "leftAt": null,
+      "roomNumber": "100",
+      "floorNumber": "1",
+      "bedNumber": "",
+      "notes": "Demo: account + attendance",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-21",
+      "feesStartDate": "2026-06-21",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-21"
+    },
+    {
+      "permanentId": "HMS-STU-2026-000003",
+      "rollNumber": 3,
+      "name": "Dhruv Shah",
+      "village": "Junagadh",
+      "mobile": "9876500003",
+      "status": "active",
+      "joinedAt": "2026-06-22T09:00:00Z",
+      "leftAt": null,
+      "roomNumber": "101",
+      "floorNumber": "1",
+      "bedNumber": "",
+      "notes": "Demo: absent",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-22",
+      "feesStartDate": "2026-06-22",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-22"
+    },
+    {
+      "permanentId": "HMS-STU-2026-000004",
+      "rollNumber": 4,
+      "name": "Ranjeet Parmar",
+      "village": "Gondal",
+      "mobile": "9876500004",
+      "status": "active",
+      "joinedAt": "2026-06-23T09:00:00Z",
+      "leftAt": null,
+      "roomNumber": "102",
+      "floorNumber": "1",
+      "bedNumber": "",
+      "notes": "Demo: room shifting",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-23",
+      "feesStartDate": "2026-06-23",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-23"
+    },
+    {
+      "permanentId": "HMS-STU-2026-000005",
+      "rollNumber": 5,
+      "name": "XYZ Kumar",
+      "village": "Ahmedabad",
+      "mobile": "9876500005",
+      "status": "active",
+      "joinedAt": "2026-06-24T09:00:00Z",
+      "leftAt": null,
+      "roomNumber": "102",
+      "floorNumber": "1",
+      "bedNumber": "",
+      "notes": "Demo: full/partial room filters",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-24",
+      "feesStartDate": "2026-06-24",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-24"
+    },
+    {
+      "permanentId": "HMS-STU-2026-000006",
+      "rollNumber": 6,
+      "name": "Neha Joshi",
+      "village": "Bhavnagar",
+      "mobile": "9876500006",
+      "status": "active",
+      "joinedAt": "2026-06-25T09:00:00Z",
+      "leftAt": null,
+      "roomNumber": "102",
+      "floorNumber": "1",
+      "bedNumber": "",
+      "notes": "Demo: third student in room",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-25",
+      "feesStartDate": "2026-06-25",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-25"
+    },
+    {
+      "permanentId": "HMS-STU-2026-000007",
+      "rollNumber": 7,
+      "name": "Aarav Mehta",
+      "village": "Jamnagar",
+      "mobile": "9876500007",
+      "status": "active",
+      "joinedAt": "2026-06-26T09:00:00Z",
+      "leftAt": null,
+      "roomNumber": "200",
+      "floorNumber": "2",
+      "bedNumber": "",
+      "notes": "Demo: second floor",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-26",
+      "feesStartDate": "2026-06-26",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-26"
+    },
+    {
+      "permanentId": "HMS-STU-2026-000008",
+      "rollNumber": 8,
+      "name": "Priya Dave",
+      "village": "Morbi",
+      "mobile": "9876500008",
+      "status": "active",
+      "joinedAt": "2026-06-27T09:00:00Z",
+      "leftAt": null,
+      "roomNumber": "200",
+      "floorNumber": "2",
+      "bedNumber": "",
+      "notes": "Demo: present",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-27",
+      "feesStartDate": "2026-06-27",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-27"
+    },
+    {
+      "permanentId": "HMS-STU-2026-000009",
+      "rollNumber": 9,
+      "name": "Meet Trivedi",
+      "village": "Surendranagar",
+      "mobile": "9876500009",
+      "status": "active",
+      "joinedAt": "2026-06-28T09:00:00Z",
+      "leftAt": null,
+      "roomNumber": "201",
+      "floorNumber": "2",
+      "bedNumber": "",
+      "notes": "Demo: fee payment",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-28",
+      "feesStartDate": "2026-06-28",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-28"
+    },
+    {
+      "permanentId": "HMS-STU-2026-000010",
+      "rollNumber": 10,
+      "name": "Jay Vora",
+      "village": "Amreli",
+      "mobile": "9876500010",
+      "status": "active",
+      "joinedAt": "2026-06-29T09:00:00Z",
+      "leftAt": null,
+      "roomNumber": "",
+      "floorNumber": "",
+      "bedNumber": "",
+      "notes": "Demo: unallocated student",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-29",
+      "feesStartDate": "2026-06-29",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-29"
+    },
+    {
+      "permanentId": "HMS-STU-2026-000011",
+      "rollNumber": null,
+      "name": "Shyam Joshi",
+      "village": "Porbandar",
+      "mobile": "9876500011",
+      "status": "left",
+      "joinedAt": "2026-06-10T09:00:00Z",
+      "leftAt": "2026-07-15T12:00:00Z",
+      "previousRollNumber": 2,
+      "roomNumber": "",
+      "floorNumber": "",
+      "bedNumber": "",
+      "notes": "Demo former student; test Restore",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-10",
+      "feesStartDate": "2026-06-10",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-10"
+    },
+    {
+      "permanentId": "HMS-STU-2026-000012",
+      "rollNumber": null,
+      "name": "Milan Rana",
+      "village": "Rajkot",
+      "mobile": "9876500012",
+      "status": "left",
+      "joinedAt": "2026-06-12T09:00:00Z",
+      "leftAt": "2026-07-20T12:00:00Z",
+      "previousRollNumber": 6,
+      "roomNumber": "",
+      "floorNumber": "",
+      "bedNumber": "",
+      "notes": "Demo former student; test Restore",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-12",
+      "feesStartDate": "2026-06-12",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-12"
+    }
+  ],
+  "formerStudents": [
+    {
+      "permanentId": "HMS-STU-2026-000011",
+      "rollNumber": null,
+      "name": "Shyam Joshi",
+      "village": "Porbandar",
+      "mobile": "9876500011",
+      "status": "left",
+      "joinedAt": "2026-06-10T09:00:00Z",
+      "leftAt": "2026-07-15T12:00:00Z",
+      "previousRollNumber": 2,
+      "roomNumber": "",
+      "floorNumber": "",
+      "bedNumber": "",
+      "notes": "Demo former student; test Restore",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-10",
+      "feesStartDate": "2026-06-10",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-10"
+    },
+    {
+      "permanentId": "HMS-STU-2026-000012",
+      "rollNumber": null,
+      "name": "Milan Rana",
+      "village": "Rajkot",
+      "mobile": "9876500012",
+      "status": "left",
+      "joinedAt": "2026-06-12T09:00:00Z",
+      "leftAt": "2026-07-20T12:00:00Z",
+      "previousRollNumber": 6,
+      "roomNumber": "",
+      "floorNumber": "",
+      "bedNumber": "",
+      "notes": "Demo former student; test Restore",
+      "parentMobile": "",
+      "caste": "Maher",
+      "admissionDate": "2026-06-12",
+      "feesStartDate": "2026-06-12",
+      "feeDurationMonths": 6,
+      "feesEndDate": "2026-12-12"
+    }
+  ],
+  "attendance": {
+    "current": {
+      "HMS-STU-2026-000001": "present",
+      "HMS-STU-2026-000002": "present",
+      "HMS-STU-2026-000003": "absent",
+      "HMS-STU-2026-000004": "present",
+      "HMS-STU-2026-000005": "absent",
+      "HMS-STU-2026-000006": "present",
+      "HMS-STU-2026-000007": "present",
+      "HMS-STU-2026-000008": "present",
+      "HMS-STU-2026-000009": "present",
+      "HMS-STU-2026-000010": "present"
+    },
+    "lastSavedDate": "2026-08-08",
+    "lastSavedAt": "2026-08-08T09:00:00Z"
+  },
+  "fees": [
+    {
+      "id": "HMS-PAY-000001",
+      "permanentId": "HMS-STU-2026-000002",
+      "amount": 3500,
+      "note": "June hostel fee",
+      "at": "2026-07-01T09:00:00Z"
+    },
+    {
+      "id": "HMS-PAY-000002",
+      "permanentId": "HMS-STU-2026-000009",
+      "amount": 4000,
+      "note": "July hostel fee",
+      "at": "2026-07-02T09:00:00Z"
+    },
+    {
+      "id": "HMS-PAY-000003",
+      "permanentId": "HMS-STU-2026-000001",
+      "amount": 3000,
+      "note": "Hostel fee paid",
+      "at": "2026-07-03T09:00:00Z"
+    }
+  ],
+  "accounts": {
+    "HMS-STU-2026-000002": {
+      "balance": 5000,
+      "transactions": [
+        {
+          "id": "HMS-ACC-000001",
+          "permanentId": "HMS-STU-2026-000002",
+          "type": "deposit",
+          "amount": 4000,
+          "note": "Cash deposited",
+          "at": "2026-07-05T10:00:00Z"
+        },
+        {
+          "id": "HMS-ACC-000002",
+          "permanentId": "HMS-STU-2026-000002",
+          "type": "deposit",
+          "amount": 1000,
+          "note": "Additional deposit",
+          "at": "2026-07-06T10:00:00Z"
+        }
+      ]
+    },
+    "HMS-STU-2026-000009": {
+      "balance": 1500,
+      "transactions": [
+        {
+          "id": "HMS-ACC-000003",
+          "permanentId": "HMS-STU-2026-000009",
+          "type": "deposit",
+          "amount": 2500,
+          "note": "Cash deposited",
+          "at": "2026-07-07T10:00:00Z"
+        },
+        {
+          "id": "HMS-ACC-000004",
+          "permanentId": "HMS-STU-2026-000009",
+          "type": "withdrawal",
+          "amount": 1000,
+          "note": "Pocket money withdrawal",
+          "at": "2026-07-08T10:00:00Z"
+        }
+      ]
+    }
+  },
+  "rooms": [
+    {
+      "number": "100",
+      "floor": "1"
+    },
+    {
+      "number": "101",
+      "floor": "1"
+    },
+    {
+      "number": "102",
+      "floor": "1"
+    },
+    {
+      "number": "103",
+      "floor": "1"
+    },
+    {
+      "number": "104",
+      "floor": "1"
+    },
+    {
+      "number": "105",
+      "floor": "1"
+    },
+    {
+      "number": "200",
+      "floor": "2"
+    },
+    {
+      "number": "201",
+      "floor": "2"
+    },
+    {
+      "number": "202",
+      "floor": "2"
+    },
+    {
+      "number": "203",
+      "floor": "2"
+    },
+    {
+      "number": "400",
+      "floor": "4"
+    },
+    {
+      "number": "401",
+      "floor": "4"
+    },
+    {
+      "number": "402",
+      "floor": "4"
+    }
+  ],
+  "history": [],
+  "settings": {
+    "hostelName": "Demo Hostel",
+    "defaultFee": 3500,
+    "attendanceThreshold": 75,
+    "roomCapacity": 3,
+    "roomRanges": [
+      {
+        "id": "HMS-RANGE-DEMO-1",
+        "start": 100,
+        "end": 105,
+        "floor": "1"
+      },
+      {
+        "id": "HMS-RANGE-DEMO-2",
+        "start": 200,
+        "end": 203,
+        "floor": "2"
+      },
+      {
+        "id": "HMS-RANGE-DEMO-3",
+        "start": 400,
+        "end": 402,
+        "floor": "4"
+      }
+    ],
+    "defaultFeeDurationMonths": 6,
+    "defaultCaste": "Maher"
+  }
+}

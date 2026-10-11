@@ -1,0 +1,28 @@
+{
+  "meta": {
+    "app": "Hostel Management System",
+    "version": 1,
+    "owner": "Dhruv Godhaniya",
+    "createdAt": "2026-08-08T05:15:58.870959+00:00",
+    "updatedAt": "2026-08-08T05:15:58.870983+00:00",
+    "backupType": "RESET_EMPTY_DATABASE"
+  },
+  "counters": {
+    "nextStudentSequence": 1,
+    "nextRoomSequence": 1,
+    "nextPaymentSequence": 1
+  },
+  "students": [],
+  "formerStudents": [],
+  "attendance": {},
+  "fees": [],
+  "rooms": [],
+  "history": [],
+  "settings": {
+    "hostelName": "Hostel Manager",
+    "defaultFee": 0,
+    "attendanceThreshold": 75,
+    "defaultFeeDurationMonths": 6,
+    "defaultCaste": "Maher"
+  }
+}

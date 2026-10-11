@@ -1,0 +1,629 @@
+============================================================
+          HOSTEL MANAGEMENT SYSTEM
+          USER INSTRUCTIONS
+          Owner: Dhruv Godhaniya
+============================================================
+
+VERSION
+-------
+Hostel Management System - Local Device Edition
+
+This website stores hostel data locally on the device/browser.
+No internet connection is required for normal operation.
+
+
+============================================================
+1. STARTING THE WEBSITE
+============================================================
+
+1. Open the "Hostel-Management-System" folder.
+
+2. Open:
+
+   index.html
+
+3. The website will open in your browser.
+
+4. For best results, use a modern browser such as:
+   - Google Chrome
+   - Chromium
+   - Microsoft Edge
+   - Firefox
+
+
+============================================================
+2. IMPORTANT DATA STORAGE SYSTEM
+============================================================
+
+The website uses ONE CENTRAL DATABASE.
+
+Database name:
+
+   dhruv_hms_database_v1
+
+All major information belongs to this database:
+
+   Students
+   Attendance
+   Fees
+   Rooms
+   History
+   Settings
+
+Do NOT manually create separate LocalStorage databases for:
+
+   students-localStorage
+   attendance-localStorage
+   fees-localStorage
+   hostel-localStorage
+
+The website should use the central database so that every page
+works with the same student information.
+
+
+============================================================
+3. STUDENT ID AND ROLL NUMBER
+============================================================
+
+Every student has TWO different identifiers.
+
+A) PERMANENT STUDENT ID
+-----------------------
+
+Example:
+
+   HMS-STU-2026-000001
+
+This ID:
+
+   - Is unique.
+   - Never changes.
+   - Must never be reused.
+   - Remains connected to the student's history.
+   - Is used internally for attendance, fees and history.
+
+
+B) CURRENT ROLL NUMBER
+----------------------
+
+Example:
+
+   Roll 1
+   Roll 2
+   Roll 3
+
+The roll number is NOT permanent.
+
+Roll numbers can be reused when a student leaves the hostel.
+
+Example:
+
+   Student A -> Roll 1
+   Student B -> Roll 2
+   Student C -> Roll 3
+
+If Student B leaves:
+
+   Student A -> Roll 1
+   Student C -> Roll 3
+
+The next available roll number should be:
+
+   Roll 2
+
+If a new student joins:
+
+   New Student -> Roll 2
+
+The new student receives a NEW permanent Student ID.
+
+Example:
+
+   Old Student:
+   HMS-STU-2026-000002
+
+   New Student:
+   HMS-STU-2026-000004
+
+The old permanent ID must NEVER be reused.
+
+
+============================================================
+4. ADDING A STUDENT
+============================================================
+
+Go to:
+
+   Admission
+
+Enter the student's required information.
+
+The system automatically:
+
+   - Generates the next available roll number.
+   - Generates a permanent Student ID.
+   - Saves the student.
+   - Updates Current Students.
+   - Updates the Students page.
+   - Makes the student available for attendance.
+   - Makes the student available for fees.
+   - Updates reports.
+
+
+============================================================
+5. SEARCHING STUDENTS
+============================================================
+
+The main operational search should use:
+
+   CURRENT ROLL NUMBER
+
+Example:
+
+   Roll 5
+
+This is useful because hostel staff normally work with current
+roll numbers.
+
+The permanent Student ID should remain available for:
+
+   - History
+   - Data integrity
+   - Internal records
+   - Old student records
+
+
+============================================================
+6. WHEN A STUDENT LEAVES
+============================================================
+
+When a student leaves the hostel:
+
+   1. Do NOT delete the permanent Student ID.
+   2. Change the student's status to LEFT/INACTIVE.
+   3. Preserve their history.
+   4. Free their current roll number.
+   5. Free their room/bed if applicable.
+   6. Remove them from active attendance lists.
+   7. Keep their old fees and attendance history.
+
+Their permanent Student ID must remain in history.
+
+
+============================================================
+7. ATTENDANCE
+============================================================
+
+Attendance should identify students using their permanent
+Student ID internally.
+
+The user interface may search/select students using:
+
+   Current Roll Number
+
+This prevents history problems if roll numbers are reused.
+
+Attendance records must remain connected to the correct student
+even if another student later receives the same roll number.
+
+
+============================================================
+8. FEES
+============================================================
+
+Fees/payment records must also remain connected to the student's
+permanent Student ID.
+
+Never identify old payment history only by roll number.
+
+A student's roll number may change or be reused.
+
+The permanent Student ID must remain the main internal reference.
+
+
+============================================================
+9. HOSTEL / ROOM MANAGEMENT
+============================================================
+
+Rooms and beds should be connected to the active student.
+
+When a student leaves:
+
+   - Their room/bed becomes available.
+   - Their historical room information remains in history if
+     supported by the system.
+
+A new student can then receive the available room/bed.
+
+
+============================================================
+10. REPORTS
+============================================================
+
+Reports should use the central database.
+
+Reports may include:
+
+   - Total students
+   - Active students
+   - Former students
+   - Attendance
+   - Fees
+   - Room occupancy
+   - Student history
+
+
+============================================================
+11. DATA DOWNLOAD / EXPORT
+============================================================
+
+Use the website's:
+
+   Download Data
+   or
+   Export Database
+
+option.
+
+This creates a JSON backup of the complete hostel database.
+
+SAVE THIS FILE SAFELY.
+
+Recommended filename:
+
+   HMS-Backup-YYYY-MM-DD.json
+
+Example:
+
+   HMS-Backup-2026-08-08.json
+
+
+============================================================
+12. DATA UPLOAD / IMPORT
+============================================================
+
+To move the complete database to another device:
+
+   1. Download/export the database from the original device.
+   2. Copy the JSON file to a pendrive.
+   3. Connect the pendrive to the second device.
+   4. Open the Hostel Management System.
+   5. Use Upload/Import Data.
+   6. Select the JSON backup.
+   7. Choose the REPLACE/IMPORT option when appropriate.
+   8. Confirm the import.
+   9. Refresh the website.
+
+The complete database should then appear on the second device.
+
+
+============================================================
+13. PC TO MOBILE
+============================================================
+
+Example:
+
+   PC
+    |
+    | Export JSON
+    v
+   HMS-Backup.json
+    |
+    | Pendrive / USB / file transfer
+    v
+   Mobile
+    |
+    | Import JSON
+    v
+   Complete Hostel Database
+
+
+IMPORTANT:
+
+The JSON backup is the portable database.
+
+Do not copy random browser LocalStorage values manually.
+
+
+============================================================
+14. VERY IMPORTANT BACKUP RULE
+============================================================
+
+BEFORE:
+
+   - Importing data
+   - Resetting data
+   - Updating the website
+   - Replacing project files
+   - Testing destructive functions
+
+ALWAYS EXPORT A BACKUP FIRST.
+
+Keep at least one backup outside the project folder.
+
+
+============================================================
+15. RESET ALL DATA
+============================================================
+
+A special reset file is provided:
+
+   HMS-RESET-ALL-DATA.json
+
+This file contains an EMPTY database.
+
+It resets:
+
+   Students       -> EMPTY
+   Former Students -> EMPTY
+   Attendance     -> EMPTY
+   Fees           -> EMPTY
+   Rooms          -> EMPTY
+   History        -> EMPTY
+
+It also resets new-record counters.
+
+
+WARNING:
+--------
+
+IMPORTING THE RESET FILE CAN REMOVE ALL CURRENT DATA FROM
+THE DATABASE.
+
+DO NOT USE IT UNLESS YOU REALLY WANT TO START AGAIN.
+
+
+============================================================
+16. HOW TO RESET THE WEBSITE
+============================================================
+
+Before resetting:
+
+   1. Export your current database.
+   2. Confirm that the backup file exists.
+   3. Keep the backup somewhere safe.
+
+Then:
+
+   4. Open the Import/Upload Data section.
+   5. Select:
+
+      HMS-RESET-ALL-DATA.json
+
+   6. Select the option that REPLACES the current database.
+   7. Confirm the operation.
+   8. Refresh the website.
+
+The hostel system should now start with an empty database.
+
+
+============================================================
+17. RESET RESULT
+============================================================
+
+After a successful reset:
+
+   Current Students = 0
+
+The next student should receive:
+
+   Roll Number:
+   1
+
+And a new permanent ID such as:
+
+   HMS-STU-2026-000001
+
+The next student:
+
+   Roll Number:
+   2
+
+   Permanent ID:
+   HMS-STU-2026-000002
+
+
+============================================================
+18. PERMANENT ID RULE
+============================================================
+
+IMPORTANT:
+
+Permanent Student IDs must NEVER be reused.
+
+Example:
+
+   Student 1
+   HMS-STU-2026-000001
+
+Student leaves.
+
+The next student must NOT receive:
+
+   HMS-STU-2026-000001
+
+Instead:
+
+   HMS-STU-2026-000002
+   or the next unused permanent sequence number.
+
+
+============================================================
+19. ROLL NUMBER RULE
+============================================================
+
+Roll numbers are temporary/current.
+
+Example:
+
+   Student A -> Roll 1
+   Student B -> Roll 2
+   Student C -> Roll 3
+
+Student B leaves.
+
+Roll 2 becomes available.
+
+New student:
+
+   New Student -> Roll 2
+
+But the new student receives a different permanent ID.
+
+
+============================================================
+20. USING A PENDRIVE
+============================================================
+
+To carry the complete website:
+
+   1. Copy the entire:
+
+      Hostel-Management-System
+
+      folder to the pendrive.
+
+   2. On another computer, copy the folder from the pendrive.
+
+   3. Open:
+
+      index.html
+
+Do NOT copy only one HTML file.
+
+The complete folder is required because the website uses:
+
+   CSS
+   JavaScript
+   Pages
+   Assets
+   Data
+   Configuration files
+
+
+============================================================
+21. PORTABLE BACKUP
+============================================================
+
+Recommended pendrive structure:
+
+   HOSTEL-BACKUP/
+   |
+   +-- Hostel-Management-System/
+   |
+   +-- HMS-Database-Backups/
+       |
+       +-- HMS-Backup-2026-08-08.json
+       +-- HMS-Backup-2026-08-09.json
+
+
+Keep database backups separate from the website source code.
+
+
+============================================================
+22. IMPORTANT TESTING PROCEDURE
+============================================================
+
+After installing/updating the website, test with demo students.
+
+Example:
+
+   Student A -> Roll 1
+   Student B -> Roll 2
+   Student C -> Roll 3
+
+Check:
+
+   - Current student count
+   - Next roll number
+   - Students page
+   - Search
+   - Attendance
+   - Fees
+   - Hostel
+   - Reports
+
+Then mark Student B as LEFT.
+
+Check:
+
+   Roll 2 becomes available.
+
+Add Student D.
+
+Check:
+
+   Student D receives Roll 2.
+
+Also check that:
+
+   Student B's permanent ID remains unique.
+   Student D gets a new permanent ID.
+
+
+============================================================
+23. DO NOT EDIT DATABASE FILE MANUALLY
+============================================================
+
+Do not manually edit the LocalStorage database from browser
+Developer Tools unless you understand the database structure.
+
+Use:
+
+   Export
+   Import
+   Reset
+
+through the website whenever possible.
+
+
+============================================================
+24. IF SOMETHING GOES WRONG
+============================================================
+
+First:
+
+   1. Stop changing data.
+   2. Export the current database if possible.
+   3. Keep the backup.
+   4. Check browser console for errors.
+   5. Restore the last known-good JSON backup.
+
+Never immediately reset the database without creating a backup.
+
+
+============================================================
+25. FINAL DATA SAFETY RULE
+============================================================
+
+THE MOST IMPORTANT RULE:
+
+BACKUP FIRST.
+
+Before any major change:
+
+   EXPORT -> VERIFY BACKUP -> CHANGE DATA
+
+For reset:
+
+   BACKUP -> RESET
+
+For moving to another device:
+
+   EXPORT -> TRANSFER -> IMPORT
+
+
+============================================================
+END OF INSTRUCTIONS
+============================================================
+
+Hostel Management System
+Owner: Dhruv Godhaniya
+
+Permanent Student ID = NEVER changes / NEVER reused
+
+Current Roll Number = Temporary / Can be reused
+
+Central Database = dhruv_hms_database_v1
+
+Always keep a backup of important hostel data.

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Dhruv Godhaniya">
+<title>Attendance | Hostel Manager</title>
+<link rel="stylesheet" href="../css/style.css">
+<link rel="stylesheet" href="../css/components.css">
+<link rel="stylesheet" href="../css/responsive.css">
+<script>
+/* Desktop-only lock: intentionally prevents the main HMS from being used on mobile. */
+(function(){
+  var mobile=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile/i.test(navigator.userAgent)||window.innerWidth<600;
+  if(!mobile)return;
+  document.documentElement.innerHTML='<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Desktop Only</title><style>body{margin:0;background:#111827;color:#fff;font-family:system-ui,sans-serif;display:flex;min-height:100vh;align-items:center;justify-content:center;text-align:center;padding:24px;box-sizing:border-box}.box{max-width:420px;background:#1f2937;border:1px solid #374151;border-radius:18px;padding:28px;box-shadow:0 15px 40px #0005}h1{font-size:22px;margin:0 0 10px}p{color:#d1d5db;line-height:1.6;margin:8px 0}.icon{font-size:42px}</style></head><body><div class="box"><div class="icon">🖥️</div><h1>Desktop Only</h1><p>This main Hostel Management System is intentionally locked on mobile devices.</p><p>Please open the main system on a desktop or laptop.</p><p>Your data is not changed or deleted.</p></div></body></html>';
+  throw new Error('HMS desktop-only lock');
+})();
+</script>
+</head>
+<body>
+<div class="app-shell">
+<aside class="sidebar" id="sidebar">
+  <div class="brand">
+    <div class="brand-logo">🏠</div>
+    <div><h2>Hostel Manager</h2><small>Management System</small></div>
+  </div>
+  <nav class="navigation">
+    <a class="nav-item " href="../index.html"><span>📋</span>Admission</a>
+    <a class="nav-item " href="../pages/students.html"><span>👨‍🎓</span>Students</a>
+    <a class="nav-item " href="../pages/hostel.html"><span>🏢</span>Hostel</a>
+    <a class="nav-item " href="../pages/fees.html"><span>💰</span>Fees</a>
+    <a class="nav-item " href="../pages/reports.html"><span>📊</span>Reports</a>
+    <a class="nav-item active" href="../pages/attendance.html"><span>✓</span>Attendance</a>
+    </nav>
+  <div class="sidebar-footer">
+    <div class="avatar">DG</div>
+    <div><strong>Dhruv Godhaniya</strong><small>System Developer</small></div>
+  </div>
+</aside>
+<main class="main-content">
+  <header class="topbar">
+    <button class="mobile-menu" id="mobileMenu" type="button">☰</button>
+    <div>
+      <div class="breadcrumb">Hostel Manager <span>/</span> <strong>Attendance</strong></div>
+      <h1>Attendance</h1>
+      <p class="subtitle">Manage hostel information safely on this device.</p>
+    </div>
+    <div class="top-status"><span class="status-dot"></span><div><small>Data Storage</small><strong>Local Device</strong></div></div>
+  </header>
+  <section class="page-content">
+    
+<div class="card">
+  <div class="card-head"><div><h2>Daily Attendance</h2><p>Attendance is stored by Permanent Student ID, not roll number.</p></div><div class="toolbar-actions"><input id="attendanceDate" class="search-input date-input" type="date"><button id="saveAttendanceBtn" class="primary-button">Save Attendance</button></div></div>
+  <div class="card-body"><div class="info-box">Active students: <strong id="attendanceCount">0</strong>. Roll numbers are shown for daily operations; history remains attached to Permanent IDs.</div></div>
+  <div class="table-wrap"><table class="data-table"><thead><tr><th>Roll</th><th>Student</th><th>Status</th></tr></thead><tbody id="attendanceBody"></tbody></table></div>
+  <div class="card-body"><button id="markAllPresent" class="secondary-button" type="button">Mark All Present</button></div>
+</div>
+
+  </section>
+  <footer class="footer">Hostel Management System • Dhruv Godhaniya</footer>
+</main>
+</div>
+<div id="toastContainer" class="toast-container"></div>
+<script src="../js/storage.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/attendance.js"></script>
+</body>
+</html>
